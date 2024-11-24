@@ -1,7 +1,7 @@
 clc;
 close all;
 clear all;
-I = imread('rutvik_patil.jpg');
+I = imread('.jpg');
 figure(1);
 subplot(2,2,1);
 imshow(I);
