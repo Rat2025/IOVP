@@ -1,7 +1,7 @@
 clc
 clear
 close all
-% generating the first image
+
 A = zeros(256);
 [m,n] = size(A);
 for i = 100:150
@@ -11,7 +11,6 @@ for i = 100:150
 end
 imshow(A), title('first Image')
 
-% generating the Second image
 B = ones(256);
 [m,n] = size(A);
 for i = 120:200
@@ -21,13 +20,13 @@ for i = 120:200
 end
 figure, imshow(B), title('Second Image')
 
-% Convolution
+
 C = conv2(A,B,'same'); % it will perfrom convlution in speacial domain
-% multiplication in frequency domain
+
 A1 = fft2(A);  % we have to convert image in frequncy domain so fft
 figure, imshow(A1),title('DFT of first Image')
 B1 = fft2(B);
-% we want multiplication of tranfrom image in frequency domain
+
 C1 = A1.*B1; % .* is used array multiplication pixel to pixel multiplication
 D = fftshift(ifft2(C1));
 %figure, imshow(C), title('Convolving the image in spitial domain')
@@ -45,19 +44,19 @@ subplot(3,2,6),imshow (D),title('Multiplication in frequency domain')
 clc
 clear
 close all
-% Define the input grayscale image A
+
 A = [0,1,2,1;1,2,3,2;2,3,4,3;1,2,3,2];
 
-% Convert A to double precision for accurate DFT calculations
+
 A = double(A);
 
-% Set the size of the DFT
+
 N = 4;
 
-% Compute the 2D DFT using fft2
+
 R2 = fft2(A);
 
-% Display the original image and DFT result
+
 figure;
 subplot(1, 2, 1);
 imshow(A, []);
